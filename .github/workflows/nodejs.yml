@@ -35,7 +35,7 @@ jobs:
           cache: 'npm'
       - run: make install
       - run: make lint
-      - run: make test
+      - run: make test-coverage
       # - name: Test & publish code coverage
         # Publish code coverage on Code Climate
         # https://github.com/paambaati/codeclimate-action
@@ -50,5 +50,7 @@ jobs:
         #     ${{github.workspace}}/coverage/lcov.info:
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          files: ./coverage/
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
