@@ -46,6 +46,8 @@ jobs:
         with:
           coverageCommand: make test-coverage
           debug: true
+          coverageLocations:
+            ${{github.workspace}}/coverage
       # - name: Upload coverage reports to Codecov
       #   uses: codecov/codecov-action@v3
       #   env:
