@@ -36,7 +36,7 @@ jobs:
       - run: make install
       - run: make lint
       - run: make test
-      - name: Test & publish code coverage
+      # - name: Test & publish code coverage
         # Publish code coverage on Code Climate
         # https://github.com/paambaati/codeclimate-action
         # uses: paambaati/codeclimate-action@v4.0.0
@@ -50,5 +50,5 @@ jobs:
         #     ${{github.workspace}}/coverage/lcov.info:
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
-        # env:
-        #   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
